@@ -1,38 +1,58 @@
 package io.github.hydrocarbonindustries;
 
 import net.minecraft.client.item.TooltipContext;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class hciMaterial extends Item {
 
 	public float Purify = 0F;
 
+	public HashMap<ChemicalMolecule, Float>  structure;
 
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
 		super.appendTooltip(stack, world, tooltip, context);
 
-		tooltip.add(Text.translatable("item.hci.purify_tooltip").append("Fe \n" + String.valueOf(this.Purify) + "%"));
+		tooltip.add(Text.translatable("item.hci.purify_tooltip").append(String.valueOf(this.Purify) + "%"));
+
+		for(ChemicalMolecule key : structure.keySet() ) {
+
+			tooltip.add(Text.literal(key.getChem_formula_text() + " - " + String.valueOf(structure.get(key)) + "%"));
+
+		}
 	}
 
-	public hciMaterial(Settings settings, float purify) {
+	public hciMaterial(Settings settings, float purify, HashMap<ChemicalMolecule, Float> prefab) {
 		super(settings);
 		this.Purify = purify;
-		System.out.print("SET HUI ZALUPA");
+
+		this.structure = prefab;
+		if (prefab == null) {
+			this.structure = new HashMap<ChemicalMolecule, Float>();
+			structure.put(ChemicalMolecules.DANILIUM, 100.0F);
+		}
+
+
+
 	}
 
 	public static hciMaterial IRON_INGOT(Item.Settings settings) {
-		System.out.print("SET HUI ZALUPA");
-		return new hciMaterial(settings, 60.0F);
+
+		HashMap<ChemicalMolecule, Float> prefab = new HashMap<ChemicalMolecule, Float>();
+
+		prefab.put(ChemicalMolecules.FERRUM, 60.0F);
+		prefab.put(ChemicalMolecules.CARBON, 40.0F);
+
+		return new hciMaterial(settings, 30.0F, prefab);
 
 	}
+
+
 }
