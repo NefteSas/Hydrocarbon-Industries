@@ -47,10 +47,10 @@ public class hciMaterial extends Item {
 
 		HashMap<ChemicalMolecule, Float> prefab = new HashMap<ChemicalMolecule, Float>();
 
-		prefab.put(ChemicalMolecules.FERRUM, 60.0F);
-		prefab.put(ChemicalMolecules.CARBON, 40.0F);
+		prefab.put(ChemicalMolecules.FERRUM, 96.0F);
+		prefab.put(ChemicalMolecules.CARBON, 4.0F);
 
-		return new hciMaterial(settings, 30.0F, prefab);
+		return new hciMaterial(settings, 50.0F, prefab);
 
 	}
 
