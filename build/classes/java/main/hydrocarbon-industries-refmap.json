@@ -1,13 +1,13 @@
 {
   "mappings": {
     "io/github/hydrocarbonindustries/mixin/TitleScreenMixin": {
-      "use": "Lnet/minecraft/class_1792;method_7836(Lnet/minecraft/class_1937;Lnet/minecraft/class_1657;Lnet/minecraft/class_1268;)Lnet/minecraft/class_1271;"
+      "Lnet/minecraft/item/Item;*": "net/minecraft/class_1792"
     }
   },
   "data": {
     "named:intermediary": {
       "io/github/hydrocarbonindustries/mixin/TitleScreenMixin": {
-        "use": "Lnet/minecraft/class_1792;method_7836(Lnet/minecraft/class_1937;Lnet/minecraft/class_1657;Lnet/minecraft/class_1268;)Lnet/minecraft/class_1271;"
+        "Lnet/minecraft/item/Item;*": "net/minecraft/class_1792"
       }
     }
   }

@@ -3,9 +3,9 @@
 	"minVersion": "0.8",
 	"package": "io.github.hydrocarbonindustries.mixin",
 	"compatibilityLevel": "JAVA_17",
-	"mixins": [],
+	"mixins": ["TitleScreenMixin"],
   "server": [
-    "TitleScreenMixin"
+
   ],
 	"client": [
 
