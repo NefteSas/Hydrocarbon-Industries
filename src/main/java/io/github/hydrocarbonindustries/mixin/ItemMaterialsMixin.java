@@ -1,6 +1,6 @@
 package io.github.hydrocarbonindustries.mixin;
 
-import io.github.hydrocarbonindustries.hciMaterial;
+import io.github.hydrocarbonindustries.Ingots.hciMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import org.spongepowered.asm.mixin.Mixin;

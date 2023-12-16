@@ -1,7 +1,6 @@
 package io.github.hydrocarbonindustries;
 
-import net.minecraft.item.Items;
-import net.minecraft.util.registry.Registry;
+import io.github.hydrocarbonindustries.Ingots.hciIngotMaterial;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
@@ -18,7 +17,7 @@ public class core implements ModInitializer {
 	@Override
 	public void onInitialize(ModContainer mod) {
 
-		new hciMaterials();
+		new hciIngotMaterial();
 
 	}
 }

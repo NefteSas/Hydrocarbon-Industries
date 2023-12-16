@@ -1,5 +1,7 @@
-package io.github.hydrocarbonindustries;
+package io.github.hydrocarbonindustries.Ingots;
 
+import io.github.hydrocarbonindustries.ChemicalMolecule;
+import io.github.hydrocarbonindustries.ChemicalMolecules;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
