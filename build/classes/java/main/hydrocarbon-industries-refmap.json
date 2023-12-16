@@ -1,12 +1,12 @@
 {
   "mappings": {
-    "io/github/hydrocarbonindustries/mixin/TitleScreenMixin": {
+    "io/github/hydrocarbonindustries/mixin/ItemMaterialsMixin": {
       "Lnet/minecraft/item/Item;*": "net/minecraft/class_1792"
     }
   },
   "data": {
     "named:intermediary": {
-      "io/github/hydrocarbonindustries/mixin/TitleScreenMixin": {
+      "io/github/hydrocarbonindustries/mixin/ItemMaterialsMixin": {
         "Lnet/minecraft/item/Item;*": "net/minecraft/class_1792"
       }
     }

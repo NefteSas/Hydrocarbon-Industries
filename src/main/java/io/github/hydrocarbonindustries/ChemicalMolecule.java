@@ -2,8 +2,8 @@ package io.github.hydrocarbonindustries;
 
 public class ChemicalMolecule {
 
-	private String name;
-	private String chem_formula_text;
+	private final String name;
+	private final String chem_formula_text;
 
 	public ChemicalMolecule(String name, String chem_formula_text){
 

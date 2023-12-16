@@ -12,7 +12,7 @@ import java.util.List;
 
 public class hciMaterial extends Item {
 
-	public float Purify = 0F;
+	public float Purify;
 
 	public HashMap<ChemicalMolecule, Float>  structure;
 
@@ -29,7 +29,7 @@ public class hciMaterial extends Item {
 		}
 	}
 
-	public hciMaterial(Settings settings, float purify, HashMap<ChemicalMolecule, Float> prefab) {
+	public hciMaterial(Settings settings, float purify , HashMap<ChemicalMolecule, Float> prefab) {
 		super(settings);
 		this.Purify = purify;
 
@@ -47,10 +47,23 @@ public class hciMaterial extends Item {
 
 		HashMap<ChemicalMolecule, Float> prefab = new HashMap<ChemicalMolecule, Float>();
 
-		prefab.put(ChemicalMolecules.FERRUM, 96.0F);
-		prefab.put(ChemicalMolecules.CARBON, 4.0F);
+		prefab.put(ChemicalMolecules.FERRUM, 99.5F);
+		prefab.put(ChemicalMolecules.CARBON, 0.5F);
 
-		return new hciMaterial(settings, 50.0F, prefab);
+		return new hciMaterial(settings, 2.0F, prefab);
+
+	}
+
+	public static hciMaterial CoalPiece(Item.Settings settings) {
+
+		HashMap<ChemicalMolecule, Float> prefab = new HashMap<ChemicalMolecule, Float>();
+
+		prefab.put(ChemicalMolecules.CARBON, 75.0F);
+		prefab.put(ChemicalMolecules.SULFUR, 5.0F);
+		prefab.put(ChemicalMolecules.OXYGEN, 6.0F);
+		prefab.put(ChemicalMolecules.HYDROGEN, 4.0F);
+
+		return new hciMaterial(settings, 67.0F, prefab);
 
 	}
 
