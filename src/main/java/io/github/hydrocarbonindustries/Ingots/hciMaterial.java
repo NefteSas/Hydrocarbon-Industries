@@ -1,7 +1,8 @@
 package io.github.hydrocarbonindustries.Ingots;
 
-import io.github.hydrocarbonindustries.ChemicalMolecule;
-import io.github.hydrocarbonindustries.ChemicalMolecules;
+import io.github.hydrocarbonindustries.chemistry.ChemicalCombination;
+import io.github.hydrocarbonindustries.chemistry.ChemicalMolecule;
+import io.github.hydrocarbonindustries.chemistry.ChemicalMolecules;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -16,7 +17,7 @@ public class hciMaterial extends Item {
 
 	public float Purify;
 
-	public HashMap<ChemicalMolecule, Float>  structure;
+	public HashMap<ChemicalMolecule, Double>  structure;
 
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
@@ -31,41 +32,35 @@ public class hciMaterial extends Item {
 		}
 	}
 
-	public hciMaterial(Settings settings, float purify , HashMap<ChemicalMolecule, Float> prefab) {
+	public hciMaterial(Settings settings, float purify , ChemicalCombination combination) {
 		super(settings);
 		this.Purify = purify;
 
-		this.structure = prefab;
-		if (prefab == null) {
-			this.structure = new HashMap<ChemicalMolecule, Float>();
-			structure.put(ChemicalMolecules.DANILIUM, 100.0F);
-		}
-
-
+		this.structure = combination.getCombination();
 
 	}
 
 	public static hciMaterial IRON_INGOT(Item.Settings settings) {
 
-		HashMap<ChemicalMolecule, Float> prefab = new HashMap<ChemicalMolecule, Float>();
+		HashMap<ChemicalMolecule, Double> prefab = new HashMap<>();
 
-		prefab.put(ChemicalMolecules.FERRUM, 99.5F);
-		prefab.put(ChemicalMolecules.CARBON, 0.5F);
+		prefab.put(ChemicalMolecules.FERRUM, 99.5);
+		prefab.put(ChemicalMolecules.CARBON, 0.5);
 
-		return new hciMaterial(settings, 2.0F, prefab);
+		return new hciMaterial(settings, 2.0F, new ChemicalCombination(prefab));
 
 	}
 
-	public static hciMaterial CoalPiece(Item.Settings settings) {
+	public static hciMaterial COAL_PIECE(Item.Settings settings) {
 
-		HashMap<ChemicalMolecule, Float> prefab = new HashMap<ChemicalMolecule, Float>();
+		HashMap<ChemicalMolecule, Double> prefab = new HashMap<>();
 
-		prefab.put(ChemicalMolecules.CARBON, 75.0F);
-		prefab.put(ChemicalMolecules.SULFUR, 5.0F);
-		prefab.put(ChemicalMolecules.OXYGEN, 6.0F);
-		prefab.put(ChemicalMolecules.HYDROGEN, 4.0F);
+		prefab.put(ChemicalMolecules.CARBON, 75.0);
+		prefab.put(ChemicalMolecules.SULFUR, 5.0);
+		prefab.put(ChemicalMolecules.OXYGEN, 6.0);
+		prefab.put(ChemicalMolecules.HYDROGEN, 4.0);
 
-		return new hciMaterial(settings, 67.0F, prefab);
+		return new hciMaterial(settings, 67.0F, new ChemicalCombination(prefab));
 
 	}
 

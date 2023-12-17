@@ -51,7 +51,7 @@ public class ItemMaterialsMixin {
 		method = "<clinit>")
 	private static Item coal(Item.Settings setting) {
 
-		return hciMaterial.CoalPiece(setting);
+		return hciMaterial.COAL_PIECE(setting);
 	}
 
 

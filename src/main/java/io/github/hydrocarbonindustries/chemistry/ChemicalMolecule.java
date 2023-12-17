@@ -1,4 +1,4 @@
-package io.github.hydrocarbonindustries;
+package io.github.hydrocarbonindustries.chemistry;
 
 public class ChemicalMolecule {
 
