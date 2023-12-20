@@ -11,9 +11,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Core implements ModInitializer {
-	// This logger is used to write text to the console and the log file.
-	// It is considered best practice to use your mod name as the logger's name.
-	// That way, it's clear which mod wrote info, warnings, and errors.
+	//TODO Запилить:
+	// - Заставить машину заливать/тратить из смеси
 	public static final Logger LOGGER = LoggerFactory.getLogger("Hydrocarbon Industries");
 
 	public static final FluidChemicalMixSimple TEST = new FluidChemicalMixSimple(new QuiltItemSettings().maxCount(1));

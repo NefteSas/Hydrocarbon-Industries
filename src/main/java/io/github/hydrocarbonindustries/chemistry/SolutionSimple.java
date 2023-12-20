@@ -49,6 +49,20 @@ public class SolutionSimple {
 
 	}
 
+	public void removeSomething(ChemicalSimple whatToRemove, Integer amount) {
+
+		if (this.content.containsKey(whatToRemove)) {
+
+			if (this.content.get(whatToRemove) - amount > 0) {
+
+				this.content.put(whatToRemove, this.content.get(whatToRemove) - amount);
+
+			}
+
+		}
+
+	}
+
 	public Integer getVoulme() {
 		return voulme;
 	}

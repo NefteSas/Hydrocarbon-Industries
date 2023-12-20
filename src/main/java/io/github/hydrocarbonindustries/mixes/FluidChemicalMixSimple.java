@@ -47,8 +47,6 @@ public class FluidChemicalMixSimple extends Item {
 
 			if (sample != null) { tooltip.add(Text.literal(sample.getStupidName() + " - " + amount + "Mb")); }
 
-
-
 		});
 
 

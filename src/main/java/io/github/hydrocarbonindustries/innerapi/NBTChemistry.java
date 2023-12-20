@@ -2,6 +2,7 @@ package io.github.hydrocarbonindustries.innerapi;
 
 import io.github.hydrocarbonindustries.chemistry.ChemicalSimple;
 import io.github.hydrocarbonindustries.chemistry.SolutionSimple;
+import io.github.hydrocarbonindustries.mixes.FluidChemicalMixSimple;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 
@@ -12,6 +13,8 @@ public class NBTChemistry {
 	public static final String CHEM_COMPOUND_UNDER_NBT = "chemcompound";
 
 	public static void appendSolutionSimpleToItemStack(SolutionSimple mix, ItemStack stack) {
+
+		if (stack.getItem().getClass() != FluidChemicalMixSimple.class) {return;}
 
 		NbtCompound chemCompound = stack.getOrCreateSubNbt(CHEM_COMPOUND_UNDER_NBT);
 
@@ -27,6 +30,7 @@ public class NBTChemistry {
 	}
 	public static SolutionSimple translateNBTToSolutionSimple(ItemStack stack) {
 
+		if (stack.getItem().getClass() != FluidChemicalMixSimple.class) {return null;}
 
 		HashMap<ChemicalSimple, Integer> bufferMix = new HashMap<>();
 
