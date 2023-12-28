@@ -2,27 +2,25 @@
 	"schemaVersion": 1,
 	"id": "hci",
 	"version": "${version}",
-	"name": "hci",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Hydrocarbon Industries",
+	"description": "BEHOLD! THE POWER OF BENZENE!",
 	"authors": [
-		"Me!"
+		"Punished Benzene - Chemican. Developer",
+		"Danilcus - Developer. Cat."
 	],
 	"contact": {
 		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"sources": "https://github.com/NefteSas/Hydrocarbon-Industries"
 	},
 	"license": "CC0-1.0",
 	"icon": "assets/hci/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.Hci"
+			"io.github.Core"
 		],
 		"client": [
-			"com.example.HciClient"
-		],
-		"fabric-datagen": [
-			"com.example.HciDataGenerator"
+			"com.example.CoreClient"
 		]
 	},
 	"mixins": [
