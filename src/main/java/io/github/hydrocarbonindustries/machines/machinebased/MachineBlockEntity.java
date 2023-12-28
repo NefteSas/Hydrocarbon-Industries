@@ -1,15 +1,13 @@
-package io.github.hydrocarbonindustries.machines.burbulator;
+package io.github.hydrocarbonindustries.machines.machinebased;
 
-import io.github.hydrocarbonindustries.machines.MachineClientEntityShit;
+import io.github.hydrocarbonindustries.Core;
 import io.github.hydrocarbonindustries.machines.MachineEntityTypes;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.NamedScreenHandlerFactory;
@@ -18,19 +16,12 @@ import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 
-import org.jetbrains.annotations.Nullable;
-import org.quiltmc.qsl.block.entity.api.QuiltBlockEntity;
-
-public class BurbulatorBlockEntity extends BlockEntity implements NamedScreenHandlerFactory{
+public class MachineBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, Inventory {
 	private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(9, ItemStack.EMPTY);
 
-	public BurbulatorBlockEntity(BlockPos pos, BlockState state) {
-		super(MachineEntityTypes.BURBULATOR_ENTITY, pos, state);
+	public MachineBlockEntity(BlockPos pos, BlockState state) {
+		super(MachineEntityTypes.MACHINE_BLOCK_ENTITY_BLOCK_ENTITY_TYPE, pos, state);
 	}
-
-
-	//From the ImplementedInventory Interface
-
 
 	//These Methods are from the NamedScreenHandlerFactory Interface
 	//createMenu creates the ScreenHandler itself
@@ -40,7 +31,7 @@ public class BurbulatorBlockEntity extends BlockEntity implements NamedScreenHan
 	public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
 		//We provide *this* to the screenHandler as our class Implements Inventory
 		//Only the Server has the Inventory at the start, this will be synced to the client in the ScreenHandler
-		return new BurbulatorScreenHandler(syncId, playerInventory);
+		return new MachineScreenHandler(syncId, playerInventory, this);
 	}
 
 	@Override
@@ -58,8 +49,48 @@ public class BurbulatorBlockEntity extends BlockEntity implements NamedScreenHan
 	}
 
 	@Override
-	protected void writeNbt(NbtCompound nbt) {
+	public void writeNbt(NbtCompound nbt) {
 		super.writeNbt(nbt);
 		Inventories.writeNbt(nbt, this.inventory);
+	}
+
+	@Override
+	public int size() {
+		return inventory.size();
+	}
+
+	@Override
+	public boolean isEmpty() {
+		return inventory.isEmpty();
+	}
+
+	@Override
+	public ItemStack getStack(int slot) {
+		return inventory.get(slot);
+	}
+
+	@Override
+	public ItemStack removeStack(int slot, int amount) {
+		return inventory.remove(slot);
+	}
+
+	@Override
+	public ItemStack removeStack(int slot) {
+		return inventory.remove(slot);
+	}
+
+	@Override
+	public void setStack(int slot, ItemStack stack) {
+		this.inventory.set(slot, stack);
+	}
+
+	@Override
+	public boolean canPlayerUse(PlayerEntity player) {
+		return true;
+	}
+
+	@Override
+	public void clear() {
+
 	}
 }

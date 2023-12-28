@@ -1,7 +1,6 @@
-package io.github.hydrocarbonindustries.machines.burbulator;
+package io.github.hydrocarbonindustries.machines.machinebased;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import io.github.hydrocarbonindustries.machines.MachineClientEntityShit;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
@@ -9,13 +8,15 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class BurbulatorScreen extends HandledScreen<BurbulatorScreenHandler> {
+public class MachineScreen extends HandledScreen<MachineScreenHandler> {
 	//A path to the gui texture. In this example we use the texture from the dispenser
 	private static final Identifier TEXTURE = new Identifier("minecraft", "textures/gui/container/dispenser.png");
 
-	public BurbulatorScreen(BurbulatorScreenHandler handler, PlayerInventory inventory, Text title) {
-		super(handler, inventory, title);
+	public MachineScreen(MachineScreenHandler handler, PlayerInventory inventory, Text text) {
+		super(handler, inventory, text);
 	}
+
+
 
 	@Override
 	protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {

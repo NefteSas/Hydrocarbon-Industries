@@ -1,6 +1,10 @@
 package io.github.hydrocarbonindustries.chemistry;
 
+import net.minecraft.text.Text;
+
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class SolutionSimple {
 
@@ -49,6 +53,26 @@ public class SolutionSimple {
 
 	}
 
+	public List<Text> toText()
+	{
+
+		List<Text> text = new ArrayList<>();
+
+		text.add(Text.literal("Volume: " + getVoulme() + "mb"));
+
+		content.forEach((k,v) -> {
+
+			if (v != null) {
+
+				text.add(Text.literal(k.getStupidName() + ": " + String.valueOf(v) + "mb"));
+
+			}
+
+
+		});
+
+		return text;
+	}
 	public void removeSomething(ChemicalSimple whatToRemove, Integer amount) {
 
 		if (this.content.containsKey(whatToRemove)) {
@@ -64,6 +88,9 @@ public class SolutionSimple {
 	}
 
 	public Integer getVoulme() {
+
+		recalculateVoulme();
+
 		return voulme;
 	}
 
